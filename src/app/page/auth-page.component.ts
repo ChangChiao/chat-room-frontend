@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-auth-page',
@@ -9,4 +10,12 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './auth-page.component.html',
   styleUrl: './auth-page.component.css',
 })
-export class AuthPageComponent {}
+export class AuthPageComponent {
+  http = inject(HttpClient);
+  loginByGoogle() {
+    this.http.get<any>('/api/config').subscribe((config) => {
+      // process the configuration.
+      console.log('config', config);
+    });
+  }
+}
