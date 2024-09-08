@@ -54,9 +54,11 @@
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-playwright": "^0.15.3",
+    "husky": "^9.1.5",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-preset-angular": "~14.1.0",
+    "lint-staged": "^15.2.10",
     "nx": "19.6.5",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
@@ -65,5 +67,13 @@
   },
   "nx": {
     "includedScripts": []
+  },
+  "lint-staged": {
+    "*.{js,ts,html}": [
+      "pnpm nx format:write --uncommitted --parallel"
+    ],
+    "*.scss": [
+      "pnpm nx affected --target=stylelint"
+    ]
   }
 }

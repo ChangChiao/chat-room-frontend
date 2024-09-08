@@ -4,7 +4,7 @@ import { NotFoundPageComponent } from './page/not-found-page/not-found-page.comp
 export const appRoutes: Route[] = [
   {
     path: 'auth',
-    loadChildren: () =>
+    loadComponent: () =>
       import('./page/auth-page/auth-page.component').then(
         (m) => m.AuthPageComponent
       ),
