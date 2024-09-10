@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthPageComponent {
   http = inject(HttpClient);
   loginByGoogle() {
-    this.http.get<any>('/api/config').subscribe((config) => {
+    this.http.get<any>('/api/v1/google').subscribe((config) => {
       // process the configuration.
       console.log('config', config);
     });
