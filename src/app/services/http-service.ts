@@ -5,7 +5,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class HttpService {
   #http = inject(HttpClient);
-  #basePath = '/api/v1';
+  #basePath = process.env['API_URL'];
 
   get<T>(url: string): Observable<T> {
     return this.#http.get<T>(`${this.#basePath}${url}`).pipe(;
