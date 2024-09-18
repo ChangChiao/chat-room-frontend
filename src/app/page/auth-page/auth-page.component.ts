@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
+import { HttpService } from 'src/app/services/http-service';
 
 @Component({
   selector: 'app-auth-page',
@@ -11,19 +12,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './auth-page.component.css',
 })
 export class AuthPageComponent implements OnInit {
-  http = inject(HttpClient);
+  http = inject(HttpService);
 
   ngOnInit() {}
 
   loginByGoogle() {
-    this.http.get<any>('/api/v1/google').subscribe((config) => {
-      // process the configuration.
+    this.http.get<any>('/google').subscribe((config) => {
       console.log('config', config);
     });
   }
 
   login() {
-    this.http.post<any>('/api/v1/users', {}).subscribe((config) => {
+    this.http.post<any>('/users', {}).subscribe((config) => {
       console.log('configuration', config);
     });
   }
