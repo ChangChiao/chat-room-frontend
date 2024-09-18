@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { environment } from '../../../environment';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
   #http = inject(HttpClient);
-  #basePath = process.env['API_URL'];
+  #basePath = environment.apiPath;
 
   get<T>(url: string): Observable<T> {
     return this.#http.get<T>(`${this.#basePath}${url}`).pipe(;
