@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environment';
 
 @Component({
   selector: 'app-auth-page',
@@ -14,14 +13,18 @@ import { environment } from '../../../../environment';
 export class AuthPageComponent implements OnInit {
   http = inject(HttpClient);
 
-  ngOnInit() {
-    console.log('url', environment.apiPath);
-  }
+  ngOnInit() {}
 
   loginByGoogle() {
     this.http.get<any>('/api/v1/google').subscribe((config) => {
       // process the configuration.
       console.log('config', config);
+    });
+  }
+
+  login() {
+    this.http.post<any>('/api/v1/users', {}).subscribe((config) => {
+      console.log('configuration', config);
     });
   }
 }
