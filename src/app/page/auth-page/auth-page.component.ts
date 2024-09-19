@@ -17,7 +17,7 @@ export class AuthPageComponent implements OnInit {
   ngOnInit() {}
 
   loginByGoogle() {
-    this.http.get<any>('/google').subscribe((config) => {
+    this.http.get<any>('/auth/google').subscribe((config) => {
       console.log('config', config);
     });
   }
