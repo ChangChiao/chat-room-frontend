@@ -10,6 +10,20 @@ export const appRoutes: Route[] = [
       ),
   },
   {
+    path: 'auth-failure',
+    loadComponent: () =>
+      import('./page/auth-failure-page/auth-failure-page.component').then(
+        (m) => m.AuthFailurePageComponent
+      ),
+  },
+  {
+    path: 'chat-list',
+    loadComponent: () =>
+      import('./page/chat-list-page/chat-list-page.component').then(
+        (m) => m.ChatListPageComponent
+      ),
+  },
+  {
     path: '404',
     component: NotFoundPageComponent,
   },
