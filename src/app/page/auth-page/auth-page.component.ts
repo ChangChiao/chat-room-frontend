@@ -13,6 +13,7 @@ import { HttpService } from 'src/app/services/http-service';
 })
 export class AuthPageComponent implements OnInit {
   http = inject(HttpService);
+  googleOAuthUrl = '/api/v1/auth/google';
 
   ngOnInit() {}
 
