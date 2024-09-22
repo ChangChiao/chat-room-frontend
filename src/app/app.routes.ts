@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 import { NotFoundPageComponent } from './page/not-found-page/not-found-page.component';
 
 export const appRoutes: Route[] = [
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   {
     path: 'auth',
     loadComponent: () =>
