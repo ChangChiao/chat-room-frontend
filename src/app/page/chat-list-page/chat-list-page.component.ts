@@ -1,5 +1,7 @@
+import { inject, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpService } from 'src/app/services/http-service';
 
 @Component({
   selector: 'app-chat-list-page',
@@ -8,4 +10,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './chat-list-page.component.html',
   styleUrl: './chat-list-page.component.css',
 })
-export class ChatListPageComponent {}
+export class ChatListPageComponent implements OnInit {
+  #http = inject(HttpService);
+
+  getUserInfo() {
+    this.#http.get<any>('/users').subscribe((res) => {
+      console.log('user-response', res);
+    });
+  }
+
+  ngOnInit() {
+    this.getUserInfo();
+  }
+}

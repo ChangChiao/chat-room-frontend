@@ -12,19 +12,19 @@ import { HttpService } from 'src/app/services/http-service';
   styleUrl: './auth-page.component.css',
 })
 export class AuthPageComponent implements OnInit {
-  http = inject(HttpService);
+  #http = inject(HttpService);
   googleOAuthUrl = '/api/v1/auth/google';
 
   ngOnInit() {}
 
   loginByGoogle() {
-    this.http.get<any>('/auth/google').subscribe((config) => {
+    this.#http.get<any>('/auth/google').subscribe((config) => {
       console.log('config', config);
     });
   }
 
   login() {
-    this.http.post<any>('/users', {}).subscribe((config) => {
+    this.#http.post<any>('/users', {}).subscribe((config) => {
       console.log('configuration', config);
     });
   }
