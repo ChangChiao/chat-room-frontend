@@ -8,7 +8,7 @@ import { HttpService } from 'src/app/services/http-service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './chat-list-page.component.html',
-  styleUrl: './chat-list-page.component.css',
+  styleUrl: './chat-list-page.component.scss',
 })
 export class ChatListPageComponent implements OnInit {
   #http = inject(HttpService);

@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './auth-failure-page.component.html',
-  styleUrl: './auth-failure-page.component.css',
+  styleUrl: './auth-failure-page.component.scss',
 })
 export class AuthFailurePageComponent {}

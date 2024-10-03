@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/services/http-service';
   standalone: true,
   imports: [CommonModule, MatButtonModule],
   templateUrl: './auth-page.component.html',
-  styleUrl: './auth-page.component.css',
+  styleUrl: './auth-page.component.scss',
 })
 export class AuthPageComponent implements OnInit {
   #http = inject(HttpService);
